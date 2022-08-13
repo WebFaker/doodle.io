@@ -11,7 +11,7 @@ func initEnglishTranslation() Translation {
 	translation.put("waiting-for-host-to-start", "Please wait for your lobby host to start the game.")
 
 	translation.put("round", "Round")
-	translation.put("toggle-soundeffects", "Toggle soundeffects")
+	translation.put("toggle-soundeffects", "Toggle sound effects")
 	translation.put("change-your-name", "Edit your username")
 	translation.put("randomize", "Randomize")
 	translation.put("apply", "Apply")
