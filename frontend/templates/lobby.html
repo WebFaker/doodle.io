@@ -3,7 +3,7 @@
 <html lang="{{.Locale}}">
 
 <head>
-    <title>Scribble.rs - Game</title>
+    <title>Scribble.it - Game</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=0.75 maximum-scale=0.75, user-scalable=0">
     {{template "non-static-css-decl" .}}
@@ -88,10 +88,9 @@
                             <span class="dialog-title">{{.Translation.Get "choose-a-word"}}</span>
                             <div class="center-dialog-content">
                                 <div class="word-button-container">
-                                    <button id="word-button-zero" class="dialog-button"
-                                        onclick="chooseWord(0)"></button>
-                                    <button id="word-button-one" class="dialog-button" onclick="chooseWord(1)"></button>
-                                    <button id="word-button-two" class="dialog-button" onclick="chooseWord(2)"></button>
+                                    <button id="word-button-zero" class="dialog-button btn btn-color btn-small" onclick="chooseWord(0)"></button>
+                                    <button id="word-button-one" class="dialog-button btn btn-color btn-small" onclick="chooseWord(1)"></button>
+                                    <button id="word-button-two" class="dialog-button btn btn-color btn-small" onclick="chooseWord(2)"></button>
                                 </div>
                             </div>
                         </div>
@@ -101,16 +100,16 @@
                             <div class="center-dialog-content">
                                 <div style="display: flex; flex-direction: column;">
                                     {{.Translation.Get "change-your-name"}}:
-                                    <div style="display: flex; flex-direction: row;">
-                                        <input class="namechange-field" type="text"
+                                    <div style="display: flex; flex-direction: row; align-items: center; margin-top: 5px;">
+                                        <input class="input-item namechange-field" type="text"
                                             id="namechange-field-start-dialog"></input>
-                                        <button class="dialog-button namechange-apply-button"
+                                        <button class="dialog-button btn btn-color btn-small namechange-apply-button"
                                             onclick="changeName(document.getElementById('namechange-field-start-dialog').value)">{{.Translation.Get "apply"}}</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="button-center-wrapper">
-                                <button class="dialog-button"
+                                <button class="dialog-button btn btn-color btn-small"
                                     onclick="startGame()">{{.Translation.Get "start"}}</button>
                             </div>
                         </div>
@@ -124,7 +123,7 @@
                                     <div style="display: flex; flex-direction: row;">
                                         <input class="namechange-field" type="text"
                                             id="namechange-field-unstarted-dialog"></input>
-                                        <button class="dialog-button namechange-apply-button"
+                                        <button class="dialog-button btn btn-color btn-small namechange-apply-button"
                                             onclick="changeName(document.getElementById('namechange-field-unstarted-dialog').value)">{{.Translation.Get "apply"}}</button>
                                     </div>
                                 </div>
@@ -147,9 +146,9 @@
                                 </form>
                             </div>
                             <div class="button-center-wrapper">
-                                <button class="dialog-button" type="submit"
+                                <button class="dialog-button btn btn-color btn-small" type="submit"
                                     form="username-form">{{.Translation.Get "save"}}</button>
-                                <button class="dialog-button" type="button"
+                                <button class="dialog-button btn btn-color btn-small" type="button"
                                     onclick="hideNameChangeDialog()">{{.Translation.Get "close"}}</button>
                             </div>
                         </div>
@@ -188,10 +187,10 @@
                                 </div>
                             </div>
                             <div class="button-center-wrapper">
-                                <button class="dialog-button" onclick="saveLobbySettings()">
+                                <button class="dialog-button btn btn-color btn-small" onclick="saveLobbySettings()">
                                     {{.Translation.Get "save-settings"}}
                                 </button>
-                                <button class="dialog-button"
+                                <button class="dialog-button btn btn-color btn-small"
                                     onclick="hideLobbySettingsDialog()">{{.Translation.Get "close"}}</button>
                             </div>
                         </div>
@@ -202,7 +201,7 @@
                                 <div id="game-over-scoreboard"></div>
                             </div>
                             <div class="button-center-wrapper">
-                                <button id="restart-button" class="dialog-button" onclick="startGame()">Restart</button>
+                                <button id="restart-button" class="dialog-button btn btn-color btn-small" onclick="startGame()">Restart</button>
                             </div>
                         </div>
 
@@ -213,7 +212,7 @@
                             </div>
                             <div class="button-center-wrapper">
                                 <button onclick="hideKickDialog()"
-                                    class="dialog-button">{{.Translation.Get "close"}}</button>
+                                    class="dialog-button btn btn-color btn-small">{{.Translation.Get "close"}}</button>
                             </div>
                         </div>
                     </div>
@@ -385,7 +384,7 @@
             <div id="chat">
                 <div id="message-container"></div>
                 <form class="message-input-form" onsubmit="return sendMessage()">
-                    <input id="message-input" type="text" autocomplete="off"
+                    <input id="message-input" class="input-item" type="text" autocomplete="off"
                         placeholder="{{.Translation.Get "message-input-placeholder"}}" />
                 </form>
             </div>
@@ -588,7 +587,7 @@
 
             const closeButton = document.createElement("button");
             closeButton.innerText = '{{.Translation.Get "close"}}';
-            closeButton.classList.add("dialog-button");
+            closeButton.classList.add("dialog-button btn btn-color btn-small");
             closeButton.addEventListener("click", event => {
                 closeDialog(helpDialogId)
             })

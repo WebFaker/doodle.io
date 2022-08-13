@@ -14,8 +14,8 @@ import (
 //This file contains the API methods for the public API
 
 var (
-	ErrNoLobbyIDSupplied = errors.New("please supply a lobby id via the 'lobby_id' query parameter")
-	ErrLobbyNotExistent  = errors.New("the requested lobby doesn't exist")
+	ErrNoLobbyIDSupplied = errors.New("Please supply a lobby id via the 'lobby_id' query parameter")
+	ErrLobbyNotExistent  = errors.New("The requested lobby doesn't exist")
 )
 
 // LobbyEntry is an API object for representing a join-able public lobby.

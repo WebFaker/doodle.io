@@ -3,7 +3,7 @@
 <html lang="{{.Locale}}">
 
 <head>
-    <title>Scribble.rs</title>
+    <title>Scribble.it</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{template "non-static-css-decl" .}}
@@ -17,19 +17,6 @@
         <noscript><span class="noscript">{{.Translation.Get "requires-js"}}</span></noscript>
 
         <img id="logo" src="{{.RootPath}}/resources/logo.svg">
-
-        <div class="tab-header">
-            <label for="create-lobby-tab-button">
-                <input id="create-lobby-tab-button" class="custom-check-or-radio tab-button" type="radio"
-                    onclick="openTab('create-lobby')" name="tab" checked>
-                <div class="tab-label">{{.Translation.Get "create-lobby"}}</div>
-            </label>
-            <label for="join-lobby-tab-button">
-                <input id="join-lobby-tab-button" class="custom-check-or-radio tab-button" type="radio"
-                    onclick="openTab('join-lobby')" name="tab">
-                <div class="tab-label">{{.Translation.Get "join-lobby"}}</div>
-            </label>
-        </div>
 
         <div id="create-lobby" class="tab-content">
             <div class="center-container">
@@ -65,11 +52,15 @@
                         <input class="input-item" type="number" name="max_players" min="{{.MinMaxPlayers}}"
                             max="{{.MaxMaxPlayers}}" value="{{.MaxPlayers}}" />
                         <b>{{.Translation.Get "public-lobby-setting"}}</b>
-                        <input class="input-item" type="checkbox" name="public" value="true"
-                            {{if eq .Public "true"}}checked{{end}} />
+                        <label class="switch2">
+                            <input type="checkbox" name="public" value="true" {{if eq .Public "true"}}checked{{end}} />
+                            <span class="slider2"></span>
+                        </label>
                         <b>{{.Translation.Get "enable-votekick-setting"}}</b>
-                        <input class="input-item" type="checkbox" name="enable_votekick" value="true"
-                            {{if eq .EnableVotekick "true"}}checked{{end}} />
+                        <label class="switch2">
+                            <input type="checkbox" name="enable_votekick" value="true" {{if eq .EnableVotekick "true"}}checked{{end}}>
+                            <span class="slider2"></span>
+                        </label>
                         <b>{{.Translation.Get "players-per-ip-limit-setting"}}</b>
                         <input class="input-item" type="number" name="clients_per_ip_limit"
                             min="{{.MinClientsPerIPLimit}}" max="{{.MaxClientsPerIPLimit}}"
@@ -84,7 +75,7 @@
                         <b>{{.Translation.Get "custom-words"}}</b>
                         <textarea class="input-item" name="custom_words"
                             placeholder="{{.Translation.Get "custom-words-info"}}">{{.CustomWords}}</textarea>
-                        <button type="submit" class="create-button" form="lobby-create">
+                        <button type="submit" class="btn btn-color create-button" form="lobby-create">
                             {{.Translation.Get "create-lobby"}}
                         </button>
                     </form>
@@ -95,7 +86,7 @@
         <div id="join-lobby" class="tab-content">
             <div class="join-lobby-data">
                 <div class="table-wrapper-wrapper">
-                    <button id="refresh-button" onclick="loadLobbyTable()">{{.Translation.Get "refresh"}}</button>
+                    <button class="btn btn-color" id="refresh-button" onclick="loadLobbyTable()">{{.Translation.Get "refresh"}}</button>
                     <div class="table-wrapper">
                         <table id="lobby-table">
                             <thead>
@@ -127,9 +118,22 @@
                     <span id="votekicking-detail"></span>
                     <span class="lobby-detail">{{.Translation.Get "players-per-ip-limit-setting"}}:</span>
                     <span id="max-clients-ip-detail"></span>
-                    <button id="join-button" onclick="onJoin()" disabled>{{.Translation.Get "join-lobby"}}</button>
+                    <button class="btn btn-color" id="join-button" onclick="onJoin()" disabled>{{.Translation.Get "join-lobby"}}</button>
                 </div>
             </div>
+        </div>
+
+        <div class="tab-header">
+            <label for="create-lobby-tab-button">
+                <input id="create-lobby-tab-button" class="custom-check-or-radio tab-button" type="radio"
+                    onclick="openTab('create-lobby')" name="tab" checked>
+                <div class="tab-label">{{.Translation.Get "create-lobby"}}</div>
+            </label>
+            <label for="join-lobby-tab-button">
+                <input id="join-lobby-tab-button" class="custom-check-or-radio tab-button" type="radio"
+                    onclick="openTab('join-lobby')" name="tab">
+                <div class="tab-label">{{.Translation.Get "join-lobby"}}</div>
+            </label>
         </div>
 
         {{template "footer" .}}
