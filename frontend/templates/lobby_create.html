@@ -18,6 +18,19 @@
 
         <img id="logo" src="{{.RootPath}}/resources/logo.svg">
 
+        <div class="tab-header">
+            <label for="create-lobby-tab-button">
+                <input id="create-lobby-tab-button" class="custom-check-or-radio tab-button" type="radio"
+                    onclick="openTab('create-lobby')" name="tab" checked>
+                <div class="tab-label">{{.Translation.Get "create-lobby"}}</div>
+            </label>
+            <label for="join-lobby-tab-button">
+                <input id="join-lobby-tab-button" class="custom-check-or-radio tab-button" type="radio"
+                    onclick="openTab('join-lobby')" name="tab">
+                <div class="tab-label">{{.Translation.Get "join-lobby"}}</div>
+            </label>
+        </div>
+
         <div id="create-lobby" class="tab-content">
             <div class="center-container">
                 <div class="content-container">
@@ -121,19 +134,6 @@
                     <button class="btn btn-color" id="join-button" onclick="onJoin()" disabled>{{.Translation.Get "join-lobby"}}</button>
                 </div>
             </div>
-        </div>
-
-        <div class="tab-header">
-            <label for="create-lobby-tab-button">
-                <input id="create-lobby-tab-button" class="custom-check-or-radio tab-button" type="radio"
-                    onclick="openTab('create-lobby')" name="tab" checked>
-                <div class="tab-label">{{.Translation.Get "create-lobby"}}</div>
-            </label>
-            <label for="join-lobby-tab-button">
-                <input id="join-lobby-tab-button" class="custom-check-or-radio tab-button" type="radio"
-                    onclick="openTab('join-lobby')" name="tab">
-                <div class="tab-label">{{.Translation.Get "join-lobby"}}</div>
-            </label>
         </div>
 
         {{template "footer" .}}

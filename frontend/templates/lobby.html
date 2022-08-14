@@ -121,7 +121,7 @@
                                     <p>{{.Translation.Get "waiting-for-host-to-start"}}</p>
                                     {{.Translation.Get "change-your-name"}}:
                                     <div style="display: flex; flex-direction: row;">
-                                        <input class="namechange-field" type="text"
+                                        <input class="input-item namechange-field" type="text"
                                             id="namechange-field-unstarted-dialog"></input>
                                         <button class="dialog-button btn btn-color btn-small namechange-apply-button"
                                             onclick="changeName(document.getElementById('namechange-field-unstarted-dialog').value)">{{.Translation.Get "apply"}}</button>
@@ -493,6 +493,7 @@
         const maxRoundSpan = document.getElementById("max-rounds");
         const timeLeftValue = document.getElementById("time-left-value");
         const drawingBoard = document.getElementById("drawing-board");
+        const toolbox = document.getElementById("toolbox");
 
         const colorPicker = document.getElementById("color-picker");
 
@@ -855,6 +856,7 @@
 
         function updateCursor() {
             if (allowDrawing) {
+                toolbox.classList.remove("mobile-hide");
                 if (localTool === rubber) {
                     setCircleCursor(rubberColor, localLineWidth);
                 } else if (localTool === fillBucket) {
@@ -886,6 +888,7 @@
                     setCircleCursor(localColor, localLineWidth);
                 }
             } else {
+                toolbox.classList.add("mobile-hide");
                 drawingBoard.style.cursor = 'not-allowed';
             }
         }

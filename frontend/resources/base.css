@@ -1,6 +1,7 @@
 html,
 body {
   height: 100vh;
+  touch-action: manipulation;
 }
 
 body,
@@ -9,6 +10,12 @@ a,
 p {
   font-family: "Nunito", sans-serif;
   margin: 0;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 0.75; /* Firefox */
 }
 
 .btn {
@@ -180,6 +187,10 @@ kbd {
   }
   h2 {
     font-size: 2rem;
+  }
+
+  .mobile-hide {
+    display: none !important;
   }
 
   .input-container {
