@@ -165,11 +165,13 @@
                                     <input id="lobby-settings-max-rounds" class="input-item" type="number" name="rounds"
                                         min="{{.MinRounds}}" max="{{.MaxRounds}}" value="{{.Rounds}}" />
                                     <b>{{.Translation.Get "max-players-setting"}}</b>
-                                    <input id="lobby-settings-max-players" type="number" name="max_players"
+                                    <input id="lobby-settings-max-players" class="input-item" type="number" name="max_players"
                                         min="{{.MinMaxPlayers}}" max="{{.MaxMaxPlayers}}" value="{{.MaxPlayers}}" />
                                     <b>{{.Translation.Get "public-lobby-setting"}}</b>
-                                    <input id="lobby-settings-public" type="checkbox" name="public" {{if eq
-                                            .Public true}}checked{{end}} />
+                                    <label class="switch2">
+                                        <input id="lobby-settings-public" type="checkbox" name="public" {{if eq .Public true}}checked{{end}} />
+                                        <span class="slider2"></span>
+                                    </label>
                                     <b>{{.Translation.Get "custom-words-chance-setting"}}</b>
                                     <div class="input-item percent-slider">
                                         <span>0%</span>
@@ -178,12 +180,15 @@
                                         <span>100%</span>
                                     </div>
                                     <b>{{.Translation.Get "players-per-ip-limit-setting"}}</b>
-                                    <input id="lobby-settings-clients-per-ip-limit" type="number"
+                                    <input id="lobby-settings-clients-per-ip-limit" class="input-item" type="number"
                                         name="clients_per_ip_limit" min="{{.MinClientsPerIPLimit}}"
                                         max="{{.MaxClientsPerIPLimit}}" value="{{.ClientsPerIPLimit}}" />
                                     <b>{{.Translation.Get "enable-votekick-setting"}}</b>
-                                    <input id="lobby-settings-enable-votekick" type="checkbox" name="enable_votekick" {{if eq .EnableVotekick
-                                                    true}}checked{{end}} />
+                                    <label class="switch2">
+                                        <input id="lobby-settings-enable-votekick" type="checkbox" name="enable_votekick" {{if eq .EnableVotekick
+                                            true}}checked{{end}} />
+                                        <span class="slider2"></span>
+                                    </label>
                                 </div>
                             </div>
                             <div class="button-center-wrapper">
@@ -588,7 +593,7 @@
 
             const closeButton = document.createElement("button");
             closeButton.innerText = '{{.Translation.Get "close"}}';
-            closeButton.classList.add("dialog-button btn btn-color btn-small");
+            closeButton.classList.add("dialog-button", "btn", "btn-color", "btn-small");
             closeButton.addEventListener("click", event => {
                 closeDialog(helpDialogId)
             })
