@@ -42,6 +42,8 @@
 }
 
 .tab-label {
+  text-transform: uppercase;
+  font-weight: bold;
   text-align: center;
   transition: 0.3s ease;
   border-top-left-radius: 8px;
@@ -62,7 +64,7 @@
 }
 
 .tab-button:checked + .tab-label {
-  border-bottom: 0.3rem solid #ffd500;
+  border-bottom: 0.3rem solid #004ee2;
   padding: 1rem;
 }
 
@@ -158,6 +160,7 @@ tr:hover {
 }
 
 #join-button:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
@@ -205,7 +208,7 @@ tr[selected="true"] {
   transition: 0.4s;
 }
 input:checked + .slider2 {
-  background-color: #ffd500;
+  background-color: #004ee2;
 }
 input:checked + .slider2::before {
   transform: translatex(25px);
@@ -215,7 +218,7 @@ input:checked + .slider2::before {
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px),
   (orientation: portrait) or (max-aspect-ratio: 4/3) {
   #logo {
-    width: 95vw;
+    width: 50vw;
   }
   .tab-header {
     margin: 0;

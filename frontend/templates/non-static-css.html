@@ -1,6 +1,7 @@
 {{/* A little hack so we need don't to have CSS templates and embed those
 directly. */}} {{/* The reason being that we need to be able to define the
-RootPath here. */}} {{define "non-static-css-decl"}}
+RootPath here. */}} {{define "non-static-css-decl"}} {{/* Color palette :
+https://coolors.co/a2faa3-92c9b1-4f759b-5d5179-571f4e */}}
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;900&display=swap");
 
@@ -11,23 +12,13 @@ RootPath here. */}} {{define "non-static-css-decl"}}
     top: 0;
     width: 100vw;
     height: 100vh;
-    background: rgb(255, 213, 0);
-    background: -moz-linear-gradient(
-      225deg,
-      rgba(255, 213, 0, 1) 25%,
-      rgba(0, 202, 255, 1) 100%
+    background-color: #4158d0;
+    background-image: linear-gradient(
+      43deg,
+      #4158d0 0%,
+      #c850c0 46%,
+      #ffcc70 100%
     );
-    background: -webkit-linear-gradient(
-      225deg,
-      rgba(255, 213, 0, 1) 25%,
-      rgba(0, 202, 255, 1) 100%
-    );
-    background: linear-gradient(
-      225deg,
-      rgba(255, 213, 0, 1) 25%,
-      rgba(0, 202, 255, 1) 100%
-    );
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffd500",endColorstr="#00caff",GradientType=1);
     z-index: -1;
   }
 </style>
